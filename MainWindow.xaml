@@ -1,0 +1,173 @@
+﻿<Window x:Class="KasperskyInternetSecurity.MainWindow"  
+    x:Name="AppWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        
+    xmlns:viewmodels="clr-namespace:KasperskyInternetSecurity.ViewModels"
+    
+    mc:Ignorable="d" Style="{StaticResource FontDefault}" 
+    Height="554" 
+    Width="761" 
+    Title="Kaspersky Internet Security" 
+    Icon="app-icon.ico" 
+    ResizeMode="CanMinimize" 
+    WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    AllowsTransparency="True"
+    >
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#a7edde" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <Style x:Key="CategoryButton">
+            <Setter Property="Control.Background" Value="Transparent" />
+            <Setter Property="Control.Cursor" Value="Hand" />
+            <Setter Property="Control.Padding" Value="15 0 0 0" />
+            <Setter Property="Control.MinHeight" Value="46" />
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#a7edde" />
+                </Trigger>
+                <Trigger Property="Control.IsFocused" Value="True">
+                    <Setter Property="Control.Background" Value="#a7edde" />
+                    <!-- 
+                      По какой-то причине срабатывает только стиль фона, левый бордер не меняется.
+                    
+                      Я понимаю, что изменения стилей должны быть привязаны к шаблону проектирования,
+                      а не к изменению стилей по фокусу, но пока не понимаю как этого добиться. 
+                    -->
+                    <Setter Property="Control.BorderThickness" Value="2 0 0 0" />
+                    <Setter Property="Control.BorderBrush" Value="#34927d" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+
+        <Style x:Key="FooterLink">
+            <Setter Property="Control.Margin" Value="0 0 12 0" />
+        </Style>
+        
+        <Style x:Key="FooterLinkContent">
+            <Setter Property="Control.FontSize" Value="12" />
+            <Setter Property="Control.Foreground" Value="#23d1ae" />
+            <Setter Property="Control.FontWeight" Value="Normal" />
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="AppWindow"
+                                     Storyboard.TargetProperty="Opacity"
+                                     From="0"
+                                     To="1"
+                                     Duration="0:0:1"
+                                     AutoReverse="False"
+                                     RepeatBehavior="1x"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="35"/>
+    </WindowChrome.WindowChrome>
+
+    <Border BorderBrush="#d0d0d0" BorderThickness="1" >
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/app-icon.ico" Width="17" Margin="8 0 0 0"/>
+                    <TextBlock Margin="7 0 0 0" VerticalAlignment="Center" FontWeight="Normal" Text="Kaspersky Internet Security" FontSize="13" HorizontalAlignment="Left" />
+                </StackPanel>
+                <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" Height="27" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Width="47" Name="HelpButton" Cursor="Help" ToolTip="Помощь" ToolTipService.InitialShowDelay="2000" Content="?"/>
+                    <Button Width="47" Name="MinimizeButton" ToolTip="Свернуть" ToolTipService.InitialShowDelay="2000" Content="ꟷ"/>
+                    <Button Width="47" Name="CloseButton" ToolTip="Закрыть" ToolTipService.InitialShowDelay="2000" Content="×"/>
+                </StackPanel>
+            </Grid>
+
+            <Border DockPanel.Dock="Top" BorderThickness="0 0 0 1" BorderBrush="#e5e5e5">
+                <StackPanel Orientation="Horizontal" MinHeight="50">
+                    <Button Width="45" Background="#fff" ToolTip="Вернуться назад" ToolTipService.InitialShowDelay="2000" HorizontalAlignment="Left">
+                        <Image Source="/img/icons/arrow-left.png" Width="22" Height="22" />
+                    </Button>
+                    <TextBlock Margin="9 0 0 0" VerticalAlignment="Center" Text="Инструменты" FontSize="16" HorizontalAlignment="Left" />
+                </StackPanel>
+            </Border>
+        
+            <Border DockPanel.Dock="Bottom" BorderThickness="0 1 0 0" BorderBrush="#e5e5e5">
+                <Grid MinHeight="32">
+                    <StackPanel Height="32" Margin="7 0 0 0" Orientation="Horizontal">
+                        <Button ToolTip="Настройки" ToolTipService.InitialShowDelay="2000">
+                            <Image Source="/img/icons/settings.png" Height="32" Width="32" />
+                        </Button>
+                        <Button ToolTip="Техническая поддержка" ToolTipService.InitialShowDelay="2000">
+                            <Image Source="/img/icons/tech-support.png" Height="32" Width="32" />
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource FooterLink}">
+                      <Hyperlink TextDecorations="" Style="{StaticResource FooterLinkContent}">Другие решения</Hyperlink>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource FooterLink}">
+                      <Hyperlink TextDecorations="" Style="{StaticResource FooterLinkContent}">My Kaspersky</Hyperlink>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Center" Style="{StaticResource FooterLink}">
+                      <Hyperlink TextDecorations="" Style="{StaticResource FooterLinkContent}">Лицензия: 319 дней осталось</Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        
+            <StackPanel DockPanel.Dock="Left" MinWidth="205">
+                <Button Style="{StaticResource CategoryButton}" Content="Защита" Command="{Binding UpdateViewCommand}" CommandParameter="Safety"/>
+                <Button Style="{StaticResource CategoryButton}" Content="Моя сеть"  Command="{Binding UpdateViewCommand}" CommandParameter="Network"/>
+                <Button Style="{StaticResource CategoryButton}" Content="Управление программами" />
+                <Button Style="{StaticResource CategoryButton}" Content="Очистка и оптимизация" />
+                <Rectangle Width="180" Fill="#d0d0d0" Height="2" Margin="0 10 0 8" />
+                <Button Style="{StaticResource CategoryButton}">
+                    <StackPanel Orientation="Horizontal" MinHeight="46">
+                        <Image Source="/img/icons/report.png" Width="32" Height="32" />
+                        <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="Отчеты" FontSize="12" Foreground="#409684" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        
+            <Grid DockPanel.Dock="Right" Background="#f6f6f6">
+                <ContentControl Content="{Binding SelectedViewModel}"/>
+            </Grid>
+        
+        </DockPanel>
+    </Border>
+</Window>
