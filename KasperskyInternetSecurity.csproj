@@ -61,10 +61,18 @@
     <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\NetworkViewModel.cs" />
+    <Compile Include="ViewModels\OptimizationViewModel.cs" />
+    <Compile Include="ViewModels\ProgramControlViewModel.cs" />
     <Compile Include="ViewModels\SafetyViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\NetworkView.xaml.cs">
       <DependentUpon>NetworkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OptimizationView.xaml.cs">
+      <DependentUpon>OptimizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProgramControlView.xaml.cs">
+      <DependentUpon>ProgramControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SafetyView.xaml.cs">
       <DependentUpon>SafetyView.xaml</DependentUpon>
@@ -84,6 +92,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Page Include="Views\NetworkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OptimizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgramControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

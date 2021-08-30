@@ -3,11 +3,11 @@
 namespace KasperskyInternetSecurity.Views
 {
     /// <summary>
-    /// Логика взаимодействия для SafetyView.xaml
+    /// Логика взаимодействия для OptimizationView.xaml
     /// </summary>
-    public partial class SafetyView : UserControl
+    public partial class OptimizationView : UserControl
     {
-        public SafetyView()
+        public OptimizationView()
         {
             InitializeComponent();
         }

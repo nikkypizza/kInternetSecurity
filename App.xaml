@@ -17,5 +17,11 @@
         <DataTemplate DataType="{x:Type viewmodels:NetworkViewModel}">
             <views:NetworkView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ProgramControlViewModel}">
+            <views:ProgramControlView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:OptimizationViewModel}">
+            <views:OptimizationView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

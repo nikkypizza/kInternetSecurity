@@ -153,8 +153,8 @@
             <StackPanel DockPanel.Dock="Left" MinWidth="205">
                 <Button Style="{StaticResource CategoryButton}" Content="Защита" Command="{Binding UpdateViewCommand}" CommandParameter="Safety"/>
                 <Button Style="{StaticResource CategoryButton}" Content="Моя сеть"  Command="{Binding UpdateViewCommand}" CommandParameter="Network"/>
-                <Button Style="{StaticResource CategoryButton}" Content="Управление программами" />
-                <Button Style="{StaticResource CategoryButton}" Content="Очистка и оптимизация" />
+                <Button Style="{StaticResource CategoryButton}" Content="Управление программами" Command="{Binding UpdateViewCommand}" CommandParameter="ProgramControl"/>
+                <Button Style="{StaticResource CategoryButton}" Content="Очистка и оптимизация" Command="{Binding UpdateViewCommand}" CommandParameter="Optimization"/>
                 <Rectangle Width="180" Fill="#d0d0d0" Height="2" Margin="0 10 0 8" />
                 <Button Style="{StaticResource CategoryButton}">
                     <StackPanel Orientation="Horizontal" MinHeight="46">

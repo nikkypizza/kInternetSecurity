@@ -3,11 +3,11 @@
 namespace KasperskyInternetSecurity.Views
 {
     /// <summary>
-    /// Логика взаимодействия для SafetyView.xaml
+    /// Логика взаимодействия для ProgramControlView.xaml
     /// </summary>
-    public partial class SafetyView : UserControl
+    public partial class ProgramControlView : UserControl
     {
-        public SafetyView()
+        public ProgramControlView()
         {
             InitializeComponent();
         }

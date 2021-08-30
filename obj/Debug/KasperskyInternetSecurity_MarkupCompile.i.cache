@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mkhod\Desktop\KasperskyInternetSecurity\obj\Debug\
+C:\Users\mkhod\Downloads\kInternetSecurity-master\obj\Debug\
 KasperskyInternetSecurity
 none
 false
 DEBUG;TRACE
-C:\Users\mkhod\Desktop\KasperskyInternetSecurity\App.xaml
-31675407458
+C:\Users\mkhod\Downloads\kInternetSecurity-master\App.xaml
+5-932259691
 
-132056391168
+171771372924
 13-1505183044
-MainWindow.xaml;Views\NetworkView.xaml;Views\SafetyView.xaml;
+MainWindow.xaml;Views\NetworkView.xaml;Views\OptimizationView.xaml;Views\ProgramControlView.xaml;Views\SafetyView.xaml;
 
 True
 

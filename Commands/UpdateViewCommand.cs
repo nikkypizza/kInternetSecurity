@@ -22,13 +22,26 @@ namespace KasperskyInternetSecurity.Commands
 
         public void Execute(object parameter)
         {
-            if (parameter.ToString() == "Safety")
+            switch (parameter)
             {
-                viewModel.SelectedViewModel = new SafetyViewModel();
-            }
-            else if (parameter.ToString() == "Network")
-            {
-                viewModel.SelectedViewModel = new NetworkViewModel();
+                case "Safety":
+                    viewModel.SelectedViewModel = new SafetyViewModel();
+                    break;
+
+                case "Network":
+                    viewModel.SelectedViewModel = new NetworkViewModel();
+                    break;
+
+                case "Optimization":
+                    viewModel.SelectedViewModel = new OptimizationViewModel();
+                    break;
+
+                case "ProgramControl":
+                    viewModel.SelectedViewModel = new ProgramControlViewModel();
+                    break;
+                    
+                default:
+                    break;
             }
         }
     }
